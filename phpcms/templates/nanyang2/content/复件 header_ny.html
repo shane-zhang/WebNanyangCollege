@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}nanyang.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}../bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}../bootstrap/js/bootstrap.js" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+</head>
+<body>
+<script type="text/javascript"> 
+$(document).ready(function(){
+    {if $catid} $("#lcat{$catid}").addClass("cuti"); {/if}
+ 
+	$(".navbarul li").hover(function() { //When trigger is clicked...
+		
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).find("ul.subnav").slideDown(200).show(); //Drop down the subnav on click
+ 
+		$(this).hover(function() {
+		}, function(){	
+			$(this).find("ul.subnav").stop(true, true).slideUp(200); //When the mouse hovers out of the subnav, move it back up
+		});
+ 
+		//Following events are applied to the trigger (Hover events for the trigger)
+		});
+ 
+});
+var Apic = $(".i_pic ul li:first a");
+var i = 0;
+function flicker() {
+	Apic = Apic.parent().next("li").children("a");
+	if (i>3) { 
+		Apic = $(".i_pic ul li:first a"); 
+		i = 0;
+	}
+	Apic.click();
+	i++;
+}
+$(document).ready(function(){
+	  Apic = $(".i_pic ul li:first a");
+	  $(".thumil_img img").hover(
+	     function(){$(this).stop(true, true).animate({marginRight:"10"}),"slow"},
+	     function(){$(this).stop(true, true).animate({marginRight:"0"}),"slow"}
+	                        )
+	  $(".thumil_img li a").click(function(){
+	    var img_path=$(this).attr("href");
+	    $(".bigpic img").stop(true, true).fadeOut('normal');
+	    $(".bigpic img").attr({src:img_path}) ;
+	    $(".bigpic img").stop(true, true).fadeIn('normal');
+	    return false;       
+	})
+	setInterval(flicker,3000);
+	
+});
+
+</script> 
+
+
+ <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<div class="header">
+   <div class="nav-bar">
+    	<div class="navbarin">
+        <? /*导航*/ ?>
+			<ul class="clearfix navbarul">
+			<li  class="nav-site"><a href="/">主页</a>
+			{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+				
+				{loop $data $r}
+				<li  class="nav-site"><a href="{$r[url]}">{$r[catname]}</a>
+					<? /*子栏目导航*/ ?>
+					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC" return="data2"}
+
+					{if sizeof($data2)} <ul class="subnav">{/if}
+						
+						{loop $data2 $r2}
+							<li > <a  href="{$r2[url]}">{$r2[catname]}</a></li>
+						{/loop}
+					{if sizeof($data2)} </ul>{/if}
+					{/pc}
+				{/loop}
+				</li>
+			{/pc}
+			</ul>
+		</div>
+		
+    </div>
+   <div class="i_pic" style="">
+    	<div class="bigpic">
+			<a href="javascript:;" >
+				<img alt="raw" src="/pictures/1.jpg" />
+			</a>
+		</div>
+		<ul class="thumil_img">
+	     <li><a href="/pictures/1.jpg" onFocus="this.blur()"><img src="/pictures/1.jpg" /></a></li>
+	     <li><a href="/pictures/2.jpg"  onFocus="this.blur()"><img src="/pictures/2.jpg" /></a></li>
+	     <li><a href="/pictures/3.jpg"  onFocus="this.blur()"><img src="/pictures/3.jpg" /></a></li>
+	     <li><a href="/pictures/4.jpg"  onFocus="this.blur()"><img src="/pictures/4.jpg" /></a></li>
+   		</ul>
+	</div>
+    <div class="dizhi">
+		<div class="kong">当前位置:</div>
+		<div class="dizhinei">
+			<a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)} {$title}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
