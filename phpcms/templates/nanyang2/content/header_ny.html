@@ -50,8 +50,15 @@
 			{/pc}
               
             </ul>
-			<form style="margin-top:10px" class="navbar-search pull-right">
-				<input type="text" class="search-query input-mini" placeholder="搜索">
+			
+			<form  method="get" action="https://www.google.com.hk/search" style="margin-top:10px" class="navbar-search pull-right">
+				<input type="text" name="q" class="search-query input-small" placeholder="搜索">
+                <input type="hidden" name="ie" value="utf8" />
+                <input type="hidden" name="oe" value="GB2312" />
+                <input type="hidden" name="hl" value="zh-CN" />
+                <input type="hidden" name="domains" value="nanyang.xjtu.edu.cn"" />
+                <br />
+                <input type="hidden" name="sitesearch" value="nanyang.xjtu.edu.cn" />
 			</form>
           </div><!--/.nav-collapse -->
         </div>
