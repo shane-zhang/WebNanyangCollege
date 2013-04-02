@@ -1,0 +1,82 @@
+{template "content","yuanhui_head"}
+<div class="main">
+  <div class="main_top">
+    <div class="flash" id="KinSlideshow" style="visibility:hidden;">
+      <a href="http://www.baidu.org" target="_blank"><img src="images/photo_01.jpg" alt="测试一下" width="875" height="235" /></a>
+      <a href="http://www.baidu.org" target="_blank"><img src="images/photo_02.jpg" alt="测试一下" width="875" height="235" /></a>
+      <a href="http://www.baidu.org" target="_blank"><img src="images/photo_03.jpg" alt="测试一下" width="875" height="235" /></a>
+      <div class="clean"></div>
+    </div>
+  </div>
+  <div class="main_bottom">
+    <div class="main_left">
+      <div class="news_slide">
+        <ul>
+          <li><a href="#">09-26 萨达打算打算打算打算...</a></li>
+          <li><a href="#">09-26 萨达打算打算打算打算...</a></li>
+          <li><a href="#">09-26 萨达打算打算打算打算...</a></li>
+          <li><a href="#">09-26 萨达打算打算打算打算...</a></li>
+          <li><a href="#">09-26 萨达打算打算打算打算...</a></li>
+        </ul>
+        <a href="#" class="more"></a>
+      </div>
+      <div class="contect">
+        <div class="tel">Tel：83662812</div>
+        <div class="phone">Phone：15829731173 </div>
+      </div>
+    </div>
+    <div class="main_right">
+      <!--<div class="location">首页>最新消息>列表</div>-->
+      <div class="news_1">
+        <div class="title">通知公告</div>
+        <div class="content">
+          <div class="icon"></div>
+          <div class="list_1">
+            {pc:content action="lists" catid="$r[catid]" num="5" order="id DESC" return="info"}
+            <ul>
+               {loop $info $v}
+               <li><span class="time">{date('Y-m-d',$r[inputtime])}</span><a href="{$v['url']}" target="_blank" title="{$v['title']}">{str_cut($v['title'],20)}</a></li>
+               {/loop}
+             </ul>
+             {/pc}     
+          </div>
+          <div class="clean"></div>
+        </div>
+      </div>
+      <div class="news_1">
+        <div class="title">通知公告</div>
+        <div class="content">
+          <div class="icon"></div>
+          <div class="list_1">
+            {pc:content action="lists" catid="$r[catid]" num="5" order="id DESC" return="info"}
+            <ul>
+               {loop $info $v}
+               <li><span class="time">{date('Y-m-d',$r[inputtime])}</span><a href="{$v['url']}" target="_blank" title="{$v['title']}">{str_cut($v['title'],20)}</a></li>
+               {/loop}
+             </ul>
+             {/pc}
+          </div>
+          <div class="clean"></div>
+        </div>
+      </div>
+      <div class="news_1">
+        <div class="title">通知公告</div>
+        <div class="content">
+          <div class="icon"></div>
+          <div class="list_1">
+            {pc:content action="lists" catid="$r[catid]" num="5" order="id DESC" return="info"}
+            <ul>
+               {loop $info $v}
+               <li><span class="time">{date('Y-m-d',$r[inputtime])}</span><a href="{$v['url']}" target="_blank" title="{$v['title']}">{str_cut($v['title'],20)}</a></li>
+               {/loop}
+             </ul>
+             {/pc}
+          </div>
+          <div class="clean"></div>
+        </div>
+      </div>
+    </div>
+    <div class="clean"></div>
+  </div>
+</div>
+{template "content","yuanhui_foot"}

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}makesi.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+</head>
+<body>
+<script type="text/javascript"> 
+$(document).ready(function(){
+    {if $catid} $("#lcat{$catid}").addClass("cuti"); {/if}
+ 
+	$(".navbarul li").hover(function() { //When trigger is clicked...
+		
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).find("ul.subnav").slideDown(200).show(); //Drop down the subnav on click
+ 
+		$(this).hover(function() {
+		}, function(){	
+			$(this).find("ul.subnav").stop(true, true).slideUp(200); //When the mouse hovers out of the subnav, move it back up
+		});
+ 
+		//Following events are applied to the trigger (Hover events for the trigger)
+		});
+ 
+});
+
+$(document).ready(function(){
+	  $(".thumil_img img").hover(
+	     function(){$(this).animate({marginRight:"10"}),"slow"},
+	     function(){$(this).animate({marginRight:"0"}),"slow"}
+	                        )
+	  $(".thumil_img li a").click(function(){
+	    var img_path=$(this).attr("href");
+	    $(".bigpic img").fadeOut('normal');
+	    $(".bigpic img").attr({src:img_path}) ;
+	    $(".bigpic img").fadeIn('normal');
+	    return false;       
+	})
+});
+</script> 
+
+
+<div class="header">
+<!--  
+	<div class="zuishang">
+		<a class="xueyuanlian" href="http://rwxy.xjtu.edu.cn/" target="_blank">西安交通大学人文学院</a>
+	</div>
+
+    <div class="nav-bar">
+    	<div class="navbarin">
+
+		
+
+        <? /*导航*/ ?>
+			<ul class="clearfix navbarul">
+			<li  class="nav-site"><a href="/">主页</a>
+			{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+				
+				{loop $data $r}
+				<li  class="nav-site"><a href="{$r[url]}">{$r[catname]}</a>
+					<? /*子栏目导航*/ ?>
+					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC" return="data2"}
+
+					{if sizeof($data2)} <ul class="subnav">{/if}
+						
+						{loop $data2 $r2}
+							<li > <a  href="{$r2[url]}">{$r2[catname]}</a></li>
+						{/loop}
+					{if sizeof($data2)} </ul>{/if}
+					{/pc}
+				{/loop}
+				</li>
+			{/pc}
+			</ul>
+		</div>
+    </div>
+	
+	<div class="mksdetou"></div>
+	<div class="dizhi">
+		<div class="kong"></div>
+		<div class="dizhinei">
+			<a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)} {$title}
+		</div>
+		<div class="clear"></div>
+	</div>
+-->
+
+   <div class="nav-bar">
+    	<div class="navbarin">
+		
+		
+
+        <? /*导航*/ ?>
+			<ul class="clearfix navbarul">
+			<li  class="nav-site"><a href="/">主页</a>
+			{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+				
+				{loop $data $r}
+				<li  class="nav-site"><a href="{$r[url]}">{$r[catname]}</a>
+					<? /*子栏目导航*/ ?>
+					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC" return="data2"}
+
+					{if sizeof($data2)} <ul class="subnav">{/if}
+						
+						{loop $data2 $r2}
+							<li > <a  href="{$r2[url]}">{$r2[catname]}</a></li>
+						{/loop}
+					{if sizeof($data2)} </ul>{/if}
+					{/pc}
+				{/loop}
+				</li>
+			{/pc}
+			</ul>
+		</div>
+		
+    </div>
+    <div class="i_pic" style="">
+    	<div class="bigpic">
+			<a href="javascript:;" >
+				<img alt="raw" src="/ny/statics/images/ny/11.jpg" />
+			</a>
+		</div>
+		<ul class="thumil_img">
+	     <li><a href="/ny/statics/images/ny/11.jpg" title="Apple" onFocus="this.blur()"><img src="/statics/images/ny/11.jpg" /></a></li>
+	     <li><a href="/ny/statics/images/ny/1.jpg" title="Cool" onFocus="this.blur()"><img src="/statics/images/ny/1.jpg" /></a></li>
+	     <li><a href="/ny/statics/images/ny/1.jpg" title="Diamond" onFocus="this.blur()"><img src="/statics/images/ny/1.jpg" /></a></li>
+	     <li><a href="/ny/statics/images/ny/1.jpg" title="Color" onFocus="this.blur()"><img src="/statics/images/ny/1.jpg" /></a></li>
+   		</ul>
+	</div>
+    <div class="dizhi">
+		<div class="kong">当前位置:</div>
+		<div class="dizhinei">
+			<a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)} {$title}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

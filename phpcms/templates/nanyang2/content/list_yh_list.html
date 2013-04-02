@@ -1,0 +1,34 @@
+{template "content","yh_head"}
+<div class="main">
+  <div class="main_bottom">
+    <div class="main_left">
+      
+      <div class="contect">
+        <a class="pg" href="http://page.renren.com/601450417?id=601450417"><img src="{IMG_PATH}rr.jpg" /></a>
+        <a class="pg" href=""><img src="{IMG_PATH}baidu.jpg" /></a>
+        <div class="pg">E-mail：nanyangsu@163.com</div>
+      </div>
+    </div>
+    <div class="main_right">
+      <!--<div class="location">首页>最新消息>列表</div>-->
+      <div class="news_1">
+        <div class="title">{$catname}</div>
+        <div class="content2">
+          <div class="list_1" style="width:600px;">
+            {pc:content action="lists" catid="$catid" num="20" order="id DESC" page="$page" return="info"}
+            <ul>
+               {loop $info $v}
+               <li><span class="time">{date('Y-m-d',$v[inputtime])}</span><a href="{$v['url']}" target="_blank" title="{$v['title']}">{str_cut($v['title'],240)}</a></li>
+               {/loop}
+             </ul>
+          </div>
+          <div class="clean"></div>
+        </div>
+        <div id="page">{$pages}</div>
+        {/pc}
+      </div>
+    </div>
+    <div class="clean"></div>
+  </div>
+</div>
+{template "content","yh_foot"}

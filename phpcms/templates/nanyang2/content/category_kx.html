@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>西安交大电信科协</title>
+<link rel="stylesheet" type="text/css" href="kx/main.css" />
+</head>
+<body>
+	<div id="header">
+		<div class="pic1">
+			<img src="img_dk/img/logo2.gif" width="354" height="118" />
+		</div>
+		<div class="pic2">
+			<img src="img_dk/img/dxkxbanner_main01.gif" width="587" height="90"
+				alt="电信科协" />
+		</div>
+		<div class="hr">
+			<hr></hr>
+		</div>
+	</div>
+	<div id="main">
+		<div class="left">
+			<ul id="nav">
+				<li><a href="http://nanyang.xjtu.edu.cn/index.php?m=content&c=index&a=lists&catid=28">首页</a></li>
+				<li><a href="kx/jieshao.html">科协介绍</a></li>
+				<li><a href="http://nanyang.xjtu.edu.cn/index.php?m=content&c=index&a=lists&catid=29">科协新闻</a></li>
+				<li><a href="http://nanyang.xjtu.edu.cn/index.php?m=content&c=index&a=lists&catid=30">科普知识</a></li>
+				<li><a href="#">加入我们</a></li>
+			</ul>
+			<a href="http://nanyang.xjtu.edu.cn/" target="_blank"><img
+				src="img_dk/img/院徽.jpg" width="200" height="80" border="0" /></a> <a
+				href="http://page.renren.com/600992602" target="_blank"><img
+				src="img_dk/img/renren.jpg" width="200" height="80" border="0" /></a> <a
+				href=" http://www.eeyes.net/index_2010/" target="_blank"><img
+				src="img_dk/img/etong.jpg" width="200" height="80" border="0" /></a> <a
+				href="http://www.tiaozhan.com/" target="_blank"><img
+				src="img_dk/img/tiaozhan.jpg" width="200" height="80" border="0" /></a>
+		</div>
+		<div class="right">
+			<div class="right_1">
+				<div class="right_1_1">
+					<div class="top">
+						<div class="pic1">
+							<img src="img_dk/img/xw.gif" width="58" height="27" />
+						</div>
+						<div class="title">科协新闻</div>
+						<div class="more"><a href="http://nanyang.xjtu.edu.cn/index.php?m=content&c=index&a=lists&catid=29">more>></a></div>
+
+					</div>
+							{pc:content  action="lists" catid="29" order="id DESC" page="$page" num="10"}
+							<ul class="list-content" style="margin:10px 0 0 10px;">   
+								{loop $data $r}
+								<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span> <a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],80)}</a></li>
+								{/loop}
+							</ul>
+							{/pc}
+				</div>
+				<div class="right_1_2">
+					<div class="top">
+						<div class="pic1">
+							<img src="img_dk/img/xw.gif" width="58" height="27" />
+						</div>
+						<div class="title">科普知识</div>
+						<div class="more"><a href="http://nanyang.xjtu.edu.cn/index.php?m=content&c=index&a=lists&catid=30">more>></a></div>
+					</div>
+							{pc:content  action="lists" catid="30" order="id DESC" page="$page" num="10"}
+							<ul class="list-content" style="margin:10px 0 0 10px;">   
+								{loop $data $r}
+								<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span> <a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],80)}</a></li>
+								{/loop}
+							</ul>
+							{/pc}
+				</div>
+			</div>
+			<div class="right_2">
+				<div class="top">
+						<div class="pic1">
+							<img src="img_dk/img/xw.gif" width="58" height="27" />
+						</div>
+						<div class="title">物品展示</div>
+						<div class="more"><a href="http://nanyang.xjtu.edu.cn/index.php?m=content&c=index&a=lists&catid=31">more>></a></div>
+					
+				</div>
+				{pc:content  action="position" posid="1" catid="31"  order="listorder DESC" thumb="1" num="5"}
+					{loop $data $r}
+					<div class="right_pic" style="margin-left:3px"> 
+					<a href="{$r['url']}" target="_blank"><img src="{thumb($r['thumb'],230,175)}" width="230" height="165" alt="{str_cut($r['title'],30)}"></a>
+					</div> 
+					{/loop} 	  
+					{/pc}
+			</div>
+		</div>
+		<div class="hr">
+			<hr></hr>
+		</div>
+	</div>
+	<div id="footer">copyright?nysy 西安交通大学南洋书院</div>
+</body>
+</html>

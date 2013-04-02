@@ -1,0 +1,145 @@
+{template "content","header_ny"}
+<div class="main">
+<div class="zhuyeb" >
+	<div class="col-left">
+
+	
+	<div class="left-pos"><a href="{$CATEGORYS[$top_parentid][url]}">{$CATEGORYS[$top_parentid][catname]}</a></div> 
+
+			{pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}
+			{loop $data $r}
+			<div class="left-nav"><a  id="lcat{$r[catid]}"  href="{$r[url]}">{$r[catname]}</a></div> 
+			{/loop}
+			{/pc}
+    		<!--
+			{if $modelid}<div class="left-nav"><a href="{APP_PATH}index.php?m=content&c=search&catid={$catid}">搜索</a></div>{/if}
+			-->
+
+    </div>  
+
+	
+	
+	
+	
+	
+	<div class="main-right">
+			<div class="box" id="list-list"> 
+					<!--
+				{pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}
+				{loop $data $r}
+				<h5 class="title-2"><a href="{$r[url]}">{$r[catname]}</a></h5> 
+				{/loop}
+				{/pc}
+				-->
+
+
+		{php $j=1;}
+		{loop subcat($catid) $v}
+		{php if($v['type']!=0) continue;}
+			<div class="catadanweida"  {if $j%2==1}style=""{/if}>
+					<h5 class="title-2"><a   href="{$v[url]}">{$v[catname]}</a><a href="{$v[url]}" class="more">更多>></a></h5>
+				 <div class="content">
+					
+					<!--
+					{pc:content action="lists" catid="$v[catid]" thumb="1" num="1" order="id DESC"}
+					<p>
+						{loop $data $v}
+							<a href="{$v[url]}" target="_blank"><img src="{thumb($v[thumb],70,60)}" width="70" height="60"/></a>
+							<strong><a href="{$v[url]}" target="_blank" title="{$v[title]}"{title_style($v[style])}>{str_cut($v[title], 30)}</a></strong><br />{str_cut($v[description],116,'..')}
+						{/loop}
+						</p>
+					{/pc}
+					-->
+					
+					
+					<ul class="list-content">
+					{pc:content action="lists" catid="$v[catid]" num="5" order="id DESC"}
+						{loop $data $v}
+							<li><span class="rt">{date('Y-m-d',$v[inputtime])}</span><a href="{$v[url]}" target="_blank"{title_style($v[style])}>{str_cut($v[title],96)}</a></li>
+						{/loop}
+					{/pc}
+					</ul>
+				</div>
+			</div>
+		   
+		{$j++}
+		{/loop}
+
+
+			</div> 
+
+
+			<div id="pages" class="text-c">{$pages}</div>
+						{/pc}
+	
+	</div>
+	</div>
+	<div class="bottombg"></div>
+
+  </div>
+  
+  
+<script type="text/javascript">
+<!--
+	function show_ajax(obj) {
+		var keywords = $(obj).text();
+		var offset = $(obj).offset();
+		var jsonitem = '';
+		$.getJSON("{APP_PATH}index.php?m=content&c=index&a=json_list&type=keyword&modelid={$modelid}&id={$id}&keywords="+encodeURIComponent(keywords),
+				function(data){
+				var j = 1;
+				var string = "<div class='point key-float'><div style='position:relative'><div class='arro'></div>";
+				string += "<a href='JavaScript:;' onclick='$(this).parent().parent().remove();' hidefocus='true' class='close'><span>关闭</span></a><div class='contents f12'>";
+				if(data!=0) {
+				  $.each(data, function(i,item){
+					j = i+1;
+					jsonitem += "<a href='"+item.url+"' target='_blank'>"+j+"、"+item.title+"</a><BR>";
+					
+				  });
+					string += jsonitem;
+				} else {
+					string += '没有找到相关的信息！';
+				}
+					string += "</div><span class='o1'></span><span class='o2'></span><span class='o3'></span><span class='o4'></span></div></div>";		
+					$(obj).after(string);
+					$('.key-float').mouseover(
+						function (){
+							$(this).siblings().css({"z-index":0})
+							$(this).css({"z-index":1001});
+						}
+					)
+					$(obj).next().css({ "left": +offset.left-100, "top": +offset.top+$(obj).height()+12});
+				});
+	}
+
+	function add_favorite(title) {
+		$.getJSON('{APP_PATH}api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
+			if(data.status==1)	{
+				$("#favorite").html('收藏成功');
+			} else {
+				alert('请登录');
+			}
+		});
+	}
+
+$(function(){
+  $('#Article .content img').LoadImage(true, 660, 660,'{IMG_PATH}s_nopic.gif');    
+})
+//-->
+</script>
+
+<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+{template "content","footer_mai"}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<div class="footer">
+
+<p class="info">
+版权所有：西安交通大学南洋书院 Copyright@2012 All Rights reserved.
+ <a href="/admin.php" target="_blank">管理页面</a>
+<div style="display:none;">{tjcode()}{php echo runhook('glogal_footer')}</div>
+</p>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".picbig").each(function(i){
+		var cur = $(this).find('.img-wrap').eq(0);
+		var w = cur.width();
+		var h = cur.height();
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'{IMG_PATH}msg_img/loading.gif');
+	});
+})
+</script>
+</body>
+</html>

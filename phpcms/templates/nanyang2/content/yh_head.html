@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}yuanhui/style.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}default_blue.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+<script language="JavaScript" src="{JS_PATH}jquery-1.4a2.min.js"></script>
+<script language="JavaScript" src="{JS_PATH}jquery.KinSlideshow-1.1.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+    $("#KinSlideshow").KinSlideshow();
+});
+</script>
+</head>
+<body>
+<div class="head">
+  <div class="banner"></div>
+  <div class="nav_list">
+    <div class="padding_1"></div>
+    <a href="index.php?m=content&c=index&a=lists&catid=32" class="nav_1">首页</a>
+    <div class="nav_2"">|</div>
+    <a href="index.php?m=content&c=index&a=lists&catid=35" class="nav_1">通知公告</a>
+    <div class="nav_2"">|</div>
+    <a href="index.php?m=content&c=index&a=lists&catid=36" class="nav_1">活动新闻</a>
+    <div class="nav_2"">|</div>
+    <a href="index.php?m=content&c=index&a=lists&catid=37" class="nav_1">文件下载</a>
+    <div class="nav_2"">|</div>
+    <a href="index.php?m=content&c=index&a=lists&catid=38" class="nav_1">部门介绍</a>
+    <div class="padding_2"></div>
+    <div class="clean"></div>
+  </div>
+  <div class="main_top">
+    <div class="flash" id="KinSlideshow" style="visibility:hidden;">
+      <a href="http://www.baidu.org" target="_blank"><img src="{CSS_PATH}yuanhui/images/photo_01.jpg" alt=" " width="875" height="235" /></a>
+      <a href="http://www.baidu.org" target="_blank"><img src="{CSS_PATH}yuanhui/images/photo_02.jpg" alt=" " width="875" height="235" /></a>
+      <a href="http://www.baidu.org" target="_blank"><img src="{CSS_PATH}yuanhui/images/photo_03.jpg" alt=" " width="875" height="235" /></a>
+      <div class="clean"></div>
+    </div>
+  </div>
+</div>
