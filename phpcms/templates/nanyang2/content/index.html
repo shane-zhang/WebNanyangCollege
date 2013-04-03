@@ -3,14 +3,35 @@
 <div class="container">
 <div class="container-fluid">
 <div class="row-fluid">
-    <div class="span2">
+    <div class="span3">
+	<div>
+	导航栏预留
+	
+	</div>
+	<div>
+	<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTz=0&amp;mode=WEEK&amp;height=250&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=k6k15s5fniqtlkggpmvp44she8%40group.calendar.google.com&amp;color=%23182C57&amp;ctz=Asia%2FShanghai" style=" border:solid 1px #777 " width="200" height="250" frameborder="0" scrolling="no"></iframe>
+	</div>
+	
+	
+	<hr />
+	
+	<div style="text-align: left; ">
+                           友情链接&gt;<hr />{pc:link action="type_list" siteid="$siteid" order="listorder
+			                DESC" num="10" return="dat"}
+				|{loop $dat $v} {if $type==0} <a href="{$v[url]}" target="_blank">{$v[name]}</a><br />
+				| {else} <a href="{$v[url]}" target="_blank"><img
+					src="{$v[logo]}" width="88" height="31"
+					style="border: 1px solid #FFBE7A;"></a> {/if} {/loop}
+			{/pc}
+	</div>
+
 	</div>
   <div class="row-fluid">
-    <div class="span5">
+    <div class="span6">
+	
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">通知公告</a></li>
-    <li><a href="#tab2" data-toggle="tab">书院新闻</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
@@ -18,19 +39,27 @@
 				<ul class="list-content" id="list14onlytitle">   
     				
 					{loop $data $r}
-					<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],60)}</a></li>
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],60)}</a></li>
 
 					{/loop}
 				</ul>
 				{/pc}
 		<a href="/index.php?m=content&c=index&a=lists&catid=17" class="more">更多&gt;&gt;</a>
     </div>
-    <div class="tab-pane" id="tab2">
+  </div>
+</div>
+ 
+ <div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li><a class="active" href="#tab2" data-toggle="tab">书院新闻</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab2">
       {pc:content  action="lists" catid="16" order="id DESC" page="$page" num="8"}
 				<ul class="list-content" id="list14onlytitle">   
     				
 					{loop $data $r}
-					<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],60)}</a></li>
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],60)}</a></li>
 
 					{/loop}
 				</ul>
@@ -39,67 +68,121 @@
     </div>
   </div>
 </div>
-    </div>
-    <div class="span5">
-	<div class="tabbable"> <!-- Only required for left/right tabs -->
+ 
+ 
+ 
+<div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab3" data-toggle="tab">心灵驿站</a></li>
-    <li><a href="#tab4" data-toggle="tab">就业招聘</a></li>
-	<li><a href="#tab5" data-toggle="tab">奖助贷勤</a></li>
+    <li class="active"><a href="#tab3" data-toggle="tab">党团建设</a></li>
+    <li><a href="#tab4" data-toggle="tab">书院团工委</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab3">
-      {pc:content  action="lists" catid="13" order="id DESC" page="$page" num="8"}
+      {pc:content  action="lists" catid="10" order="id DESC" page="$page" num="8"}
 				<ul class="list-content" id="list14onlytitle">   
     				
 					{loop $data $r}
-					<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],60)}</a></li>
 
 					{/loop}
 				</ul>
 				{/pc}
-				<a href="/index.php?m=content&c=index&a=lists&catid=11" class="more">更多&gt;&gt;</a>
+		<a href="/index.php?m=content&c=index&a=lists&catid=10" class="more">更多&gt;&gt;</a>
     </div>
     <div class="tab-pane" id="tab4">
-      {pc:content  action="lists" catid="11" order="id DESC" page="$page" num="8"}
+      {pc:content  action="lists" catid="34" order="id DESC" page="$page" num="8"}
 				<ul class="list-content" id="list14onlytitle">   
     				
 					{loop $data $r}
-					<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],60)}</a></li>
+
+					{/loop}
+				</ul>
+				{/pc}
+				<a href="/index.php?m=content&c=index&a=lists&catid=34" class="more">更多&gt;&gt;</a>
+    </div>
+  </div>
+</div>
+ 
+
+
+  </div>
+
+    <div class="span3">
+	<div id="calendar">
+		<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showTz=0&amp;height=200&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=nanyang.xjtu%40gmail.com&amp;color=%232F6309&amp;ctz=Asia%2FShanghai" style=" border-width:0 " width="250" height="200" frameborder="0" scrolling="no"></iframe>
+	</div>
+
+	<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab5" data-toggle="tab">心灵驿站</a></li>
+    <li><a href="#tab6" data-toggle="tab">就业招聘</a></li>
+	<li><a href="#tab7" data-toggle="tab">奖助贷勤</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab5">
+      {pc:content  action="lists" catid="13" order="id DESC" page="$page" num="8"}
+				<ul class="list-content" id="list14onlytitle">   
+    				
+					{loop $data $r}
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
 
 					{/loop}
 				</ul>
 				{/pc}
 				<a href="/index.php?m=content&c=index&a=lists&catid=13" class="more">更多&gt;&gt;</a>
     </div>
-	<div class="tab-pane" id="tab5">
+    <div class="tab-pane" id="tab6">
+      {pc:content  action="lists" catid="11" order="id DESC" page="$page" num="8"}
+				<ul class="list-content" id="list14onlytitle">   
+    				
+					{loop $data $r}
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
+
+					{/loop}
+				</ul>
+				{/pc}
+				<a href="/index.php?m=content&c=index&a=lists&catid=11" class="more">更多&gt;&gt;</a>
+    </div>
+	<div class="tab-pane" id="tab7">
       {pc:content  action="lists" catid="12" order="id DESC" page="$page" num="8"}
 				<ul class="list-content" id="list14onlytitle">   
     				
 					{loop $data $r}
-					<li><span class="rt">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
 
 					{/loop}
 				</ul>
 				{/pc}
 				<a href="/index.php?m=content&c=index&a=lists&catid=12" class="more">更多&gt;&gt;</a>
     </div>
+	
   </div>
 </div>
+
+<div >
+<div class="lead">
+常用文件下载
+</div>
+      {pc:content  action="lists" catid="37" order="id DESC" page="$page" num="8"}
+				<ul class="list-content" id="list14onlytitle">   
+    				
+					{loop $data $r}
+					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
+
+					{/loop}
+				</ul>
+				{/pc}
+				<a href="/index.php?m=content&c=index&a=lists&catid=37" class="more">更多&gt;&gt;</a>
+    </div>
+  	
+	
 </div>
 </div>
 </div>
 </div>
 </div>
-	<div class="container well" style="text-align: center; ">
-                           友情链接&gt;{pc:link action="type_list" siteid="$siteid" order="listorder
-			                DESC" num="10" return="dat"}
-				|{loop $dat $v} {if $type==0} <a href="{$v[url]}" target="_blank">{$v[name]}</a>
-				| {else} <a href="{$v[url]}" target="_blank"><img
-					src="{$v[logo]}" width="88" height="31"
-					style="border: 1px solid #FFBE7A;"></a> {/if} {/loop}
-			{/pc}
-	</div>
+	
 
 	<div class="bottombg"></div>
 </div>
