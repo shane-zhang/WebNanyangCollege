@@ -4,8 +4,30 @@
 <div class="container-fluid">
 <div class="row-fluid">
     <div class="span3">
-	<div>
-	导航栏预留
+	<div class="well">
+<ul class="nav nav-list">
+              <li><a href="index.php">主页</a></li>
+			  {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+				
+				{loop $data $r}
+				
+					<? /*子栏目导航*/ ?>
+					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC" return="data2"}
+
+					{if sizeof($data2)} <li  class="dropdown"><a href="{$r[url]}" class="dropdown-toggle" data-toggle="dropdown">{$r[catname]}<b class="caret"></b></a><ul class="dropdown-menu">
+					{else}
+					<li><a href="{$r[url]}" >{$r[catname]}</a>
+					{/if}
+						
+						{loop $data2 $r2}
+							<li > <a  href="{$r2[url]}">{$r2[catname]}</a></li>
+						{/loop}
+					{if sizeof($data2)} </ul>{/if}
+					{/pc}
+				{/loop}
+				</li>
+			{/pc} 
+</ul>
 	
 	</div>
 	<div>
@@ -26,7 +48,6 @@
 	</div>
 
 	</div>
-  <div class="row-fluid">
     <div class="span6">
 	
 <div class="tabbable"> <!-- Only required for left/right tabs -->
