@@ -1,6 +1,15 @@
 #LeftNav li
 {
-	background:url(pic/nav-bak.png) no-repeat;
+	background:url(pic/button2.png) no-repeat;
+	padding-left:30px;
+}
+#LeftNav
+{
+	padding-top:110px;
+	padding-left:100px;
+	background:url(pic/nav.png) no-repeat;
+	height:300px;
+	margin-left:-80px;
 }
 
 #DutyInfo
@@ -9,7 +18,7 @@
 	padding-top:50px;
 	padding-left:10px;
 	background:url(pic/duty.png) no-repeat;
-	height:200px;
+	height:120px;
 }
 
 #HotLink
@@ -21,6 +30,11 @@
 	line-height:33px;
 	background:url(pic/link.jpg) no-repeat;
 	
+}
+
+#list14onlytitle li a
+{
+	color:grey;
 }
 
 #HotLink a
@@ -35,6 +49,8 @@
 	background:url(pic/download.png) no-repeat;
 	height:200px;
 }
+
+
 
 .dropdown-menu
 {
