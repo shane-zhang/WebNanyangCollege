@@ -1,17 +1,43 @@
+#HeaderOld
+{
+	background:url(pic/biyeji.png) no-repeat;
+	height:230px;
+	margin-top:-30px;
+}
+
 #LeftNav li
 {
 	background:url(pic/button2.png) no-repeat;
 	height:32px;
-	padding-left:30px;
+	padding-left:40px;
 	margin-top:5px;
+	font-family:FangSong_GB2312;
 }
+
+#LeftNav li a
+{
+	padding-top:7px;
+}
+
+.more
+{
+	color:black;
+	font-size:80%;
+}
+
 #LeftNav
 {
-	padding-top:80px;
+	padding-top:90px;
 	padding-left:40px;
 	background:url(pic/nav.png) no-repeat;
 	height:305px;
 	margin-left:-15px;
+}
+
+#CalendarInput
+{
+	width:0px;
+	height:0px;
 }
 
 #DutyInfo
@@ -20,7 +46,8 @@
 	padding-top:50px;
 	padding-left:10px;
 	background:url(pic/duty.png) no-repeat;
-	height:120px;
+	height:140px;
+	width:220px;
 }
 
 #HotLink
@@ -47,6 +74,7 @@
 
 #DownLoad
 {
+	width:210px;
 	padding-top:50px;
 	background:url(pic/download.png) no-repeat;
 	height:200px;

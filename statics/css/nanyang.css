@@ -2584,7 +2584,7 @@ body fieldset.blue legend {
 	height: 185px;
 	float: right;
 	padding-right: 50px;
-	margin-top: 25px;
+	margin-top:3px;
 }
 
 .i_pic .bigpic a img {

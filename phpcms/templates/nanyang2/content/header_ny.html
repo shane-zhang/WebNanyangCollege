@@ -64,7 +64,69 @@
         </div>
       </div>
 </div>
-<div class="container" style="margin-top: -20px;">
+<div class="container" id="HeaderOld">
+<script type="text/javascript"> 
+$(document).ready(function(){
+     
+	$(".navbarul li").hover(function() { //When trigger is clicked...
+		
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).find("ul.subnav").slideDown(200).show(); //Drop down the subnav on click
+ 
+		$(this).hover(function() {
+		}, function(){	
+			$(this).find("ul.subnav").stop(true, true).slideUp(200); //When the mouse hovers out of the subnav, move it back up
+		});
+ 
+		//Following events are applied to the trigger (Hover events for the trigger)
+		});
+ 
+});
+var Apic = $(".i_pic ul li:first a");
+var i = 0;
+function flicker() {
+	Apic = Apic.parent().next("li").children("a");
+	if (i>3) { 
+		Apic = $(".i_pic ul li:first a"); 
+		i = 0;
+	}
+	Apic.click();
+	i++;
+}
+$(document).ready(function(){
+	  Apic = $(".i_pic ul li:first a");
+	  $(".thumil_img img").hover(
+	     function(){$(this).stop(true, true).animate({marginRight:"10"}),"slow"},
+	     function(){$(this).stop(true, true).animate({marginRight:"0"}),"slow"}
+	                        )
+	  $(".thumil_img li a").click(function(){
+	    var img_path=$(this).attr("href");
+	    $(".bigpic img").stop(true, true).fadeOut('normal');
+	    $(".bigpic img").attr({src:img_path}) ;
+	    $(".bigpic img").stop(true, true).fadeIn('normal');
+	    return false;       
+	})
+	setInterval(flicker,3000);
+	
+});
+
+</script> 
+
+<div class="i_pic" style="">
+    	<div class="bigpic">
+			<a href="javascript:;">
+				<img alt="raw" src="/pictures/1.jpg" style="display: inline;">
+			</a>
+		</div>
+		<ul class="thumil_img">
+	     <li><a href="/pictures/1.jpg" onfocus="this.blur()"><img src="/pictures/1.jpg"></a></li>
+	     <li><a href="/pictures/2.jpg" onfocus="this.blur()"><img src="/pictures/2.jpg" style="margin-right: 0px;"></a></li>
+	     <li><a href="/pictures/3.jpg" onfocus="this.blur()"><img src="/pictures/3.jpg" style="margin-right: 0px;"></a></li>
+	     <li><a href="/pictures/4.jpg" onfocus="this.blur()"><img src="/pictures/4.jpg"></a></li>
+   		</ul>
+	</div>
+</div>
+<!--div class="container" style="margin-top: -20px;">
 <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
@@ -100,9 +162,9 @@
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
-	</div>
-  <div class="container" style="margin-top: -50px;">
+    </div>
+	</div-->
+  <div class="container">
 		<div class="well">
 			当前位置:<a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)} {$title}
 		</div>

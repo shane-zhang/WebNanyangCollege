@@ -6,7 +6,7 @@
     <div class="span3">
 	<div class="">
 <ul class="nav nav-list" id="LeftNav">
-              <li><a href="index.php">主页</a></li>
+              <li><a href="index.php">主&nbsp&nbsp页</a></li>
 			  {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
 				
 				{loop $data $r}
@@ -142,7 +142,7 @@
 
   </div>
 
-    <div class="span3">
+    <div class="span3" style="padding-left:30px">
 	<div id="calendar" style="height:275px">
 		<input id="CalendarInput" name="date" type="text" id="date" onclick="calendar.show(this);" size="3" maxlength="10" readonly="readonly" />
 		<script>$("#CalendarInput")[0].onclick()</script>
@@ -151,8 +151,6 @@
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab5" data-toggle="tab">心灵驿站</a></li>
-    <li><a href="#tab6" data-toggle="tab">就业招聘</a></li>
-	<li><a href="#tab7" data-toggle="tab">奖助贷勤</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab5">
@@ -166,30 +164,6 @@
 				</ul>
 				{/pc}
 				<a href="/index.php?m=content&c=index&a=lists&catid=13" class="more">更多&gt;&gt;</a>
-    </div>
-    <div class="tab-pane" id="tab6">
-      {pc:content  action="lists" catid="11" order="id DESC" page="$page" num="8"}
-				<ul class="list-content" id="list14onlytitle">   
-    				
-					{loop $data $r}
-					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
-
-					{/loop}
-				</ul>
-				{/pc}
-				<a href="/index.php?m=content&c=index&a=lists&catid=11" class="more">更多&gt;&gt;</a>
-    </div>
-	<div class="tab-pane" id="tab7">
-      {pc:content  action="lists" catid="12" order="id DESC" page="$page" num="8"}
-				<ul class="list-content" id="list14onlytitle">   
-    				
-					{loop $data $r}
-					<li><span class="pull-right">{date('Y-m-d',$r[inputtime])}</span><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{str_cut($r[title],64)}</a></li>
-
-					{/loop}
-				</ul>
-				{/pc}
-				<a href="/index.php?m=content&c=index&a=lists&catid=12" class="more">更多&gt;&gt;</a>
     </div>
 	
   </div>
