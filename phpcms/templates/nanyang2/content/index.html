@@ -1,10 +1,11 @@
 ﻿{template "content","header_ny"}
 <!--main-->
 <div class="container">
-<div class="container-fluid">
-<div class="row-fluid">
+  <div class="container-fluid">
+    <div class="row-fluid">
+	
     <div class="span3">
-	<div class="">
+	<div id="Nav">
 <ul class="nav nav-list" id="LeftNav">
               <li><a href="index.php">主&nbsp&nbsp页</a></li>
 			  {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
@@ -31,7 +32,6 @@
 	
 	</div>
 	<hr />
-	<div>
 	
 <div id="DutyInfo"> 
     <div id="DutyInfoInner">
@@ -47,8 +47,7 @@
 		<a href="/index.php?m=content&c=index&a=lists&catid=40" class="more">更多&gt;&gt;</a>
     </div>
 </div>
-	</div>
-	
+
 	
 	<hr />
 	
@@ -63,7 +62,8 @@
 	</div>
 
 	</div>
-    <div class="span6">
+ 
+   <div class="span6">
 	
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
@@ -142,7 +142,8 @@
 
   </div>
 
-    <div class="span3" style="padding-left:30px">
+    <div class="span3">
+	<div id="Right">
 	<div id="calendar" style="height:275px">
 		<input id="CalendarInput" name="date" type="text" id="date" onclick="calendar.show(this);" size="3" maxlength="10" readonly="readonly" />
 		<script>$("#CalendarInput")[0].onclick()</script>
@@ -183,8 +184,7 @@
 				<a href="/index.php?m=content&c=index&a=lists&catid=37" class="more">更多&gt;&gt;</a>
     </div>
   	
-	
-</div>
+	</div>
 </div>
 </div>
 </div>
