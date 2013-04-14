@@ -15,13 +15,12 @@
 	background:url(pic/button2.png) no-repeat;
 	height:32px;
 	padding-left:40px;
-	margin-top:5px;
+	padding-top:5px;
 	font-family:FangSong_GB2312;
 }
 
 #LeftNav li a
 {
-	padding-top:7px;
 }
 
 .more
@@ -83,6 +82,7 @@
 	padding-top:50px;
 	background:url(pic/download.png) no-repeat;
 	height:200px;
+	font-size:80%;
 }
 
 

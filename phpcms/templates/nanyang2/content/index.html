@@ -1,32 +1,24 @@
 ﻿{template "content","header_ny"}
 <!--main-->
-<div class="container">
+<div class="container" style="margin-top:-20px">
   <div class="container-fluid">
     <div class="row-fluid">
 	
     <div class="span3">
 	<div id="Nav">
-<ul class="nav nav-list" id="LeftNav">
+<ul id="LeftNav">
               <li><a href="index.php">主&nbsp&nbsp页</a></li>
 			  {pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
 				
 				{loop $data $r}
 				
-					<? /*子栏目导航*/ ?>
 					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC" return="data2"}
 
-					{if sizeof($data2)} <li  class="dropdown"><a href="{$r[url]}" class="dropdown-toggle" data-toggle="dropdown">{$r[catname]}<b class="caret"></b></a><ul class="dropdown-menu">
-					{else}
-					<li><a href="{$r[url]}" >{$r[catname]}</a>
-					{/if}
-						
-						{loop $data2 $r2}
-							<li > <a  href="{$r2[url]}">{$r2[catname]}</a></li>
-						{/loop}
-					{if sizeof($data2)} </ul>{/if}
+					<li><a href="{$r[url]}" >{$r[catname]}</a></li>
+		
 					{/pc}
 				{/loop}
-				</li>
+				
 			{/pc} 
 </ul>
 	
@@ -80,7 +72,7 @@
 					{/loop}
 				</ul>
 				{/pc}
-		<a href="/index.php?m=content&c=index&a=lists&catid=17" class="more">更多&gt;&gt;</a>
+		<a href="/index.php?m=content&c=index&a=lists&catid=17" class="more pull-right">更多&gt;&gt;</a>
     </div>
   </div>
 </div>
@@ -100,7 +92,7 @@
 					{/loop}
 				</ul>
 				{/pc}
-		<a href="/index.php?m=content&c=index&a=lists&catid=16" class="more">更多&gt;&gt;</a>
+		<a href="/index.php?m=content&c=index&a=lists&catid=16" class="more pull-right">更多&gt;&gt;</a>
     </div>
   </div>
 </div>
@@ -121,7 +113,7 @@
 					{/loop}
 				</ul>
 				{/pc}
-		<a href="/index.php?m=content&c=index&a=lists&catid=10" class="more">更多&gt;&gt;</a>
+		<a href="/index.php?m=content&c=index&a=lists&catid=10" class="more pull-right">更多&gt;&gt;</a>
     </div>
     <div class="tab-pane" id="tab4">
       {pc:content  action="lists" catid="34" order="id DESC" page="$page" num="8"}
@@ -133,7 +125,7 @@
 					{/loop}
 				</ul>
 				{/pc}
-				<a href="/index.php?m=content&c=index&a=lists&catid=34" class="more">更多&gt;&gt;</a>
+				<a href="/index.php?m=content&c=index&a=lists&catid=34" class="more pull-right">更多&gt;&gt;</a>
     </div>
   </div>
 </div>
@@ -164,7 +156,7 @@
 					{/loop}
 				</ul>
 				{/pc}
-				<a href="/index.php?m=content&c=index&a=lists&catid=13" class="more">更多&gt;&gt;</a>
+				<a href="/index.php?m=content&c=index&a=lists&catid=13" class="more pull-right">更多&gt;&gt;</a>
     </div>
 	
   </div>
@@ -181,7 +173,6 @@
 					{/loop}
 				</ul>
 				{/pc}
-				<a href="/index.php?m=content&c=index&a=lists&catid=37" class="more">更多&gt;&gt;</a>
     </div>
   	
 	</div>
