@@ -7,7 +7,7 @@
 
 #Right
 {
-	margin-left:30px;
+	margin-left:20px;
 }
 
 #LeftNav li
@@ -31,7 +31,7 @@
 
 #LeftNav
 {
-	padding-top:90px;
+	padding-top:80px;
 	padding-left:40px;
 	background:url(pic/nav.png) no-repeat;
 	height:305px;
@@ -40,8 +40,9 @@
 
 #CalendarInput
 {
-	width:0px;
-	height:0px;
+	width:10px;
+	height:10px;
+	margin-left:-10px;
 }
 
 #DutyInfo
